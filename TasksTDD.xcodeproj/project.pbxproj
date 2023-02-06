@@ -16,6 +16,7 @@
 		A9C7BE7B2991497700A9BB5D /* TasksTDDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C7BE7A2991497700A9BB5D /* TasksTDDTests.swift */; };
 		A9C7BE852991497700A9BB5D /* TasksTDDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C7BE842991497700A9BB5D /* TasksTDDUITests.swift */; };
 		A9C7BE872991497700A9BB5D /* TasksTDDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C7BE862991497700A9BB5D /* TasksTDDUITestsLaunchTests.swift */; };
+		A9C7BE98299149F900A9BB5D /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C7BE97299149F900A9BB5D /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		A9C7BE802991497700A9BB5D /* TasksTDDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TasksTDDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C7BE842991497700A9BB5D /* TasksTDDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTDDUITests.swift; sourceTree = "<group>"; };
 		A9C7BE862991497700A9BB5D /* TasksTDDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTDDUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A9C7BE97299149F900A9BB5D /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +101,10 @@
 		A9C7BE622991497600A9BB5D /* TasksTDD */ = {
 			isa = PBXGroup;
 			children = (
-				A9C7BE632991497600A9BB5D /* AppDelegate.swift */,
-				A9C7BE652991497600A9BB5D /* SceneDelegate.swift */,
-				A9C7BE672991497600A9BB5D /* ViewController.swift */,
-				A9C7BE692991497600A9BB5D /* Main.storyboard */,
-				A9C7BE6C2991497700A9BB5D /* Assets.xcassets */,
-				A9C7BE6E2991497700A9BB5D /* LaunchScreen.storyboard */,
-				A9C7BE712991497700A9BB5D /* Info.plist */,
+				A9C7BE952991499300A9BB5D /* Controller */,
+				A9C7BE942991498D00A9BB5D /* View */,
+				A9C7BE932991498600A9BB5D /* Model */,
+				A9C7BE96299149A000A9BB5D /* SupportingFiles */,
 			);
 			path = TasksTDD;
 			sourceTree = "<group>";
@@ -125,6 +124,42 @@
 				A9C7BE862991497700A9BB5D /* TasksTDDUITestsLaunchTests.swift */,
 			);
 			path = TasksTDDUITests;
+			sourceTree = "<group>";
+		};
+		A9C7BE932991498600A9BB5D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A9C7BE97299149F900A9BB5D /* Task.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A9C7BE942991498D00A9BB5D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A9C7BE952991499300A9BB5D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A9C7BE672991497600A9BB5D /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A9C7BE96299149A000A9BB5D /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A9C7BE632991497600A9BB5D /* AppDelegate.swift */,
+				A9C7BE652991497600A9BB5D /* SceneDelegate.swift */,
+				A9C7BE692991497600A9BB5D /* Main.storyboard */,
+				A9C7BE6C2991497700A9BB5D /* Assets.xcassets */,
+				A9C7BE6E2991497700A9BB5D /* LaunchScreen.storyboard */,
+				A9C7BE712991497700A9BB5D /* Info.plist */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C7BE98299149F900A9BB5D /* Task.swift in Sources */,
 				A9C7BE682991497600A9BB5D /* ViewController.swift in Sources */,
 				A9C7BE642991497600A9BB5D /* AppDelegate.swift in Sources */,
 				A9C7BE662991497600A9BB5D /* SceneDelegate.swift in Sources */,
@@ -439,7 +475,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 54R28VTTU4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TasksTDD/Info.plist;
+				INFOPLIST_FILE = TasksTDD/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -467,7 +503,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 54R28VTTU4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TasksTDD/Info.plist;
+				INFOPLIST_FILE = TasksTDD/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
