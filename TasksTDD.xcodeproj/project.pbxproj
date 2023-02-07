@@ -25,6 +25,7 @@
 		A9E86DBE2992786E00533B46 /* TaskListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E86DBD2992786E00533B46 /* TaskListViewControllerTests.swift */; };
 		A9E86DC029927E5900533B46 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E86DBF29927E5900533B46 /* DataProvider.swift */; };
 		A9E86DC22992866800533B46 /* DataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E86DC12992866800533B46 /* DataProviderTests.swift */; };
+		A9E86DC4299291D300533B46 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E86DC3299291D300533B46 /* TaskCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		A9E86DBD2992786E00533B46 /* TaskListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewControllerTests.swift; sourceTree = "<group>"; };
 		A9E86DBF29927E5900533B46 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		A9E86DC12992866800533B46 /* DataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderTests.swift; sourceTree = "<group>"; };
+		A9E86DC3299291D300533B46 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		A9C7BE942991498D00A9BB5D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A9E86DC3299291D300533B46 /* TaskCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				A9C7BE98299149F900A9BB5D /* Task.swift in Sources */,
 				A9C7BE682991497600A9BB5D /* TaskListViewController.swift in Sources */,
 				A9E86DC029927E5900533B46 /* DataProvider.swift in Sources */,
+				A9E86DC4299291D300533B46 /* TaskCell.swift in Sources */,
 				A9C7BE9D2991988E00A9BB5D /* Location.swift in Sources */,
 				A9C7BE642991497600A9BB5D /* AppDelegate.swift in Sources */,
 				A9C7BE662991497600A9BB5D /* SceneDelegate.swift in Sources */,
