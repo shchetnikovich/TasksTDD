@@ -8,6 +8,11 @@ final class TaskTests: XCTestCase {
         XCTAssertNotNil(task)
     }
     
+    func testTastInits_WithDate() {
+        let task = Task(title: "task_title")
+        XCTAssertNotNil(task.date)
+    }
+    
     func testInitTask_withDescription() {
         let task = Task(title: "task_title", description: "task_description")
         XCTAssertNotNil(task)
@@ -21,11 +26,6 @@ final class TaskTests: XCTestCase {
     func testTaskDescription_whenGiven_setsDescription() {
         let task = Task(title: "task_title", description: "task_description")
         XCTAssertTrue(task.description == "task_description")
-    }
-    
-    func testTastInits_WithDate() {
-        let task = Task(title: "task_title")
-        XCTAssertNotNil(task.date)
     }
     
     func testTaskTitle_whenGiven_setsLocation() {
