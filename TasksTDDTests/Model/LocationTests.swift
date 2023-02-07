@@ -12,9 +12,13 @@ import CoreLocation
 
 final class LocationTests: XCTestCase {
 
-    override func setUpWithError() throws {}
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+    }
 
-    override func tearDownWithError() throws {}
+    override func tearDownWithError() throws {
+        try super.tearDownWithError()
+    }
     
     func testLocation_initName() {
         let location = Location(name: "location_name")

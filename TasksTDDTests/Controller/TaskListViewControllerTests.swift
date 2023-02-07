@@ -13,6 +13,7 @@ final class TaskListViewControllerTests: XCTestCase {
     var sut: TaskListViewController!
     
     override func setUpWithError() throws {
+        try super.setUpWithError()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: String(describing: TaskListViewController.self))
         sut = vc as? TaskListViewController
@@ -21,7 +22,8 @@ final class TaskListViewControllerTests: XCTestCase {
     }
     
     override func tearDownWithError() throws {
-        
+        sut = nil
+        try super.tearDownWithError()
     }
     
     func testTaskView_notNil_viewIsLoaded() {

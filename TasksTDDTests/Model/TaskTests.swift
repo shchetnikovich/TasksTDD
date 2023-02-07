@@ -3,6 +3,14 @@ import XCTest
 
 final class TaskTests: XCTestCase {
     
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+    }
+
+    override func tearDownWithError() throws {
+        try super.tearDownWithError()
+    }
+    
     func testInitTask_withTitle() {
         let task = Task(title: "task_title")
         XCTAssertNotNil(task)
