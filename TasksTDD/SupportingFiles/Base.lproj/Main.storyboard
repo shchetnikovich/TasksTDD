@@ -19,6 +19,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5fN-vP-bOK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="L1Y-Ec-G5b" id="1Fr-nr-D0A"/>
+                                    <outlet property="delegate" destination="L1Y-Ec-G5b" id="UYw-zV-CMQ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -31,10 +35,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="DataProvider" destination="L1Y-Ec-G5b" id="iaC-2R-h55"/>
                         <outlet property="tableView" destination="5fN-vP-bOK" id="8n4-lY-Sas"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="L1Y-Ec-G5b" customClass="DataProvider" customModule="TasksTDD" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="132" y="-55"/>
         </scene>
