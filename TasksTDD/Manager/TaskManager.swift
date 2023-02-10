@@ -25,7 +25,7 @@ class TaskManager {
     }
     
     func task(at index: Int) -> Task {
-        return tasks[index]
+         return tasks[index]
     }
     
     func checkTask(at index: Int) {     //  Отметка о выполнении задачи

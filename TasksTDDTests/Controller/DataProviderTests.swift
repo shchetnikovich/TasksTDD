@@ -43,11 +43,11 @@ final class DataProviderTests: XCTestCase {
     }
     
     func testData_numberRows_inSectionZero_isTaskCount() {
-        sut.taskManager?.add(task: Task(title: "task1"))
+        sut.taskManager?.add(task: Task(title: "task_one"))
         
         XCTAssertEqual(tableView.numberOfRows(inSection: 0), 1)
         
-        sut.taskManager?.add(task: Task(title: "task2"))
+        sut.taskManager?.add(task: Task(title: "task_two"))
         
         tableView.reloadData()  //   Перегружаем таблицу
         
@@ -55,12 +55,12 @@ final class DataProviderTests: XCTestCase {
     }
     
     func testData_numberRows_inSectionOne_isDoneTaskCount() {
-        sut.taskManager?.add(task: Task(title: "task1"))
+        sut.taskManager?.add(task: Task(title: "task_one"))
         sut.taskManager?.checkTask(at: 0)
         
         XCTAssertEqual(tableView.numberOfRows(inSection: 1), 1)
         
-        sut.taskManager?.add(task: Task(title: "task2"))
+        sut.taskManager?.add(task: Task(title: "task_two"))
         sut.taskManager?.checkTask(at: 0)
         
         tableView.reloadData()
@@ -69,7 +69,7 @@ final class DataProviderTests: XCTestCase {
     }
     
     func testCell_rowAtIndexPath_returnTaskCell() {
-        sut.taskManager?.add(task: Task(title: "task1"))
+        sut.taskManager?.add(task: Task(title: "task_one"))
         tableView.reloadData()
         
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
@@ -82,7 +82,7 @@ final class DataProviderTests: XCTestCase {
         mockTableView.dataSource = sut
         mockTableView.register(TaskCell.self, forCellReuseIdentifier: String(describing: TaskCell.self))
         
-        sut.taskManager?.add(task: Task(title: "task1"))
+        sut.taskManager?.add(task: Task(title: "task_one"))
         mockTableView.reloadData()
         
         _ = mockTableView.cellForRow(at: IndexPath(row: 0, section: 0))
@@ -93,11 +93,24 @@ final class DataProviderTests: XCTestCase {
     func testCell_rowAtZero_callConfigure() {
         tableView.register(MockTaskCell.self, forCellReuseIdentifier: String(describing: TaskCell.self))
         
-        let task = Task(title: "task1")
+        let task = Task(title: "task_one")
         sut.taskManager?.add(task: task)
         tableView.reloadData()
         
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! MockTaskCell
+        
+        XCTAssertEqual(cell.task, task)
+    }
+    
+    func testCell_rowAtFirst_callConfigure() {
+        tableView.register(MockTaskCell.self, forCellReuseIdentifier: String(describing: TaskCell.self))
+        
+        let task = Task(title: "task_one")
+        sut.taskManager?.add(task: task)
+        sut.taskManager?.checkTask(at: 0)
+        tableView.reloadData()
+        
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! MockTaskCell
         
         XCTAssertEqual(cell.task, task)
     }

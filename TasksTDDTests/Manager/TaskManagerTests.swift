@@ -33,14 +33,14 @@ final class TaskManagerTests: XCTestCase {
     
     
     func testTaskManager_addTask_incrementCount() {
-        let task = Task(title: "task1")
+        let task = Task(title: "task_one")
         sut.add(task: task)
         
         XCTAssertEqual(sut.taskCount, 1)
     }
     
     func testTaskManager_addTask_atIndexTask() {
-        let task = Task(title: "task1")
+        let task = Task(title: "task_one")
         sut.add(task: task)
         
         let returnedTask = sut.task(at: 0)
@@ -49,7 +49,7 @@ final class TaskManagerTests: XCTestCase {
     }
     
     func testTaskManager_checkTask_atIndexCounts() {
-        let task = Task(title: "task1")
+        let task = Task(title: "task_one")
         sut.add(task: task)
         
         sut.checkTask(at: 0)
@@ -59,8 +59,8 @@ final class TaskManagerTests: XCTestCase {
     }
     
     func testTaskManager_checkedTask_removedFromTasks() {
-        let firstTask = Task(title: "task1")
-        let secondTask = Task(title: "task2")
+        let firstTask = Task(title: "task_one")
+        let secondTask = Task(title: "task_two")
         sut.add(task: firstTask)
         sut.add(task: secondTask)
         
@@ -70,7 +70,7 @@ final class TaskManagerTests: XCTestCase {
     }
     
     func testTaskManager_doneTask_returnsCheckedTask() {
-        let task = Task(title: "task1")
+        let task = Task(title: "task_one")
         sut.add(task: task)
         
         sut.checkTask(at: 0)
@@ -80,8 +80,8 @@ final class TaskManagerTests: XCTestCase {
     }
     
     func testTaskManager_removeAllResults_countsBeZero() {
-        sut.add(task: Task(title: "task1"))
-        sut.add(task: Task(title: "task2"))
+        sut.add(task: Task(title: "task_one"))
+        sut.add(task: Task(title: "task_two"))
         
         sut.checkTask(at: 0)
         sut.removeAll()
@@ -91,8 +91,8 @@ final class TaskManagerTests: XCTestCase {
     }
     
     func testTaskManager_addTask_sameObjectDoesNotIncrementCount() {
-        sut.add(task: Task(title: "task1"))
-        sut.add(task: Task(title: "task1"))
+        sut.add(task: Task(title: "task_one"))
+        sut.add(task: Task(title: "task_one"))
         
         XCTAssertTrue(sut.taskCount == 1)
     }
