@@ -61,6 +61,20 @@ final class TaskCellTests: XCTestCase {
         
         XCTAssertEqual(cell.titleLabel.text, task.title)
     }
+    
+    func testCell_configureDate() {
+        let task = Task(title: "task_one")
+        
+        cell.configure(withTask: task)
+        
+        let df = DateFormatter()
+        df.dateFormat = "dd.MM.yy"
+        
+        let date = task.date
+        let dateString = df.string(from: date!)
+        
+        XCTAssertEqual(cell.dateLabel.text, dateString)
+    }
 }
 
 extension TaskCellTests {
