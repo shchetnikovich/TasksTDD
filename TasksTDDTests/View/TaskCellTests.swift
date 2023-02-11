@@ -85,6 +85,32 @@ final class TaskCellTests: XCTestCase {
         XCTAssertEqual(cell.locationLabel.text, task.location?.name)
         
     }
+    
+    func testTask_checkedDone_styleStrikeThrough() {        //  Выполненые задачи должны быть иметь "зачёркнутый" стиль
+        let task = Task(title: "task_one")
+        cell.configure(withTask: task, done: true)
+        
+        let attributedString = NSAttributedString(
+            string: "task_one",
+            attributes: [NSAttributedString.Key.strikethroughStyle : NSUnderlineStyle.single.rawValue])
+        
+        XCTAssertEqual(cell.titleLabel.attributedText, attributedString)
+    }
+    
+    func testTask_doneTaskDateLabel_equalsNul() {       //  Необязательно хранить дату и локацию у выполненных задач
+        let task = Task(title: "task_one")
+        cell.configure(withTask: task, done: true)
+        
+        XCTAssertNil(cell.dateLabel)    //  Проверяем пустой ли лейбл с датой
+    }
+    
+    func testTask_doneTaskLocationLabel_equalsNul() {
+        let location = Location(name: "Saint-Petersburg")
+        let task = Task(title: "task_one", location: location)
+        cell.configure(withTask: task, done: true)
+        
+        XCTAssertNil(cell.locationLabel)        //  И  с локацией
+    }
 }
 
 extension TaskCellTests {
