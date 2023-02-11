@@ -17,6 +17,7 @@ class TaskCell: UITableViewCell {
         
     func configure(withTask task: Task) {
         self.titleLabel.text = task.title
+        self.locationLabel.text = task.location?.name
         
         let df = DateFormatter()
         df.dateFormat = "dd.MM.yy"
