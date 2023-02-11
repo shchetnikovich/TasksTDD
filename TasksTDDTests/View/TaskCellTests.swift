@@ -35,10 +35,31 @@ final class TaskCellTests: XCTestCase {
         XCTAssertNotNil(cell.titleLabel)        //  Проверяем что ярлык внутри TaskCell, который отображает название Task'a не равен nil
     }
     
-    
-    
     func testCellHas_titleLabel_inContentView() {
         XCTAssertTrue(cell.titleLabel.isDescendant(of: cell.contentView))   // Находится ли titleLable внутри view?
+    }
+    
+    func testCell_hasLocationLabel() {
+        XCTAssertNotNil(cell.locationLabel)
+    }
+    
+    func testCell_locationLabel_inContentView() {
+        XCTAssertTrue(cell.locationLabel.isDescendant(of: cell.contentView))
+    }
+    
+    func testCell_hasDateLabel() {
+        XCTAssertNotNil(cell.dateLabel)
+    }
+    
+    func testCell_dateLabel_inContentView() {
+        XCTAssertTrue(cell.dateLabel.isDescendant(of: cell.contentView))
+    }
+    
+    func testCell_configureTitle() {
+        let task = Task(title: "task_one")
+        cell.configure(withTask: task)
+        
+        XCTAssertEqual(cell.titleLabel.text, task.title)
     }
 }
 

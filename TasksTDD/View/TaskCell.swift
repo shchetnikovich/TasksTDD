@@ -11,6 +11,12 @@ class TaskCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var locationLabel: UILabel!
+
+    @IBOutlet weak var dateLabel: UILabel!
+        
     func configure(withTask task: Task) {
+        self.titleLabel.text = task.title
+        
     }
 }
