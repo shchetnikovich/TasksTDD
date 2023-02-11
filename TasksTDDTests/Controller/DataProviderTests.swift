@@ -126,6 +126,28 @@ final class DataProviderTests: XCTestCase {
         let buttonTitle = tableView.delegate?.tableView?(tableView, titleForDeleteConfirmationButtonForRowAt: IndexPath(row: 0, section: 1))
         XCTAssertEqual(buttonTitle, "Undone")
     }
+    
+    func testDeleteButton_checkingTask_checksInTaskManager() {
+        let task = Task(title: "task_one")
+        sut.taskManager?.add(task: task)
+        
+        tableView.dataSource?.tableView?(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 0))
+        
+        XCTAssertEqual(sut.taskManager?.taskCount, 0)
+        XCTAssertEqual(sut.taskManager?.doneTaskCount, 1)   //  1 - секция
+    }
+    
+    func testDeleteButton_uncheckingTask_unckeksInTaskManager() {
+        let task = Task(title: "task_one")
+        sut.taskManager?.add(task: task)
+        sut.taskManager?.checkTask(at: 0)
+        tableView.reloadData()
+        
+        tableView.dataSource?.tableView?(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 1))
+        
+        XCTAssertEqual(sut.taskManager?.taskCount, 1)
+        XCTAssertEqual(sut.taskManager?.doneTaskCount, 0)   //  0 - добавили таск он находился в 0 секции, мы его чекнули он попал в 1 секцию, нажимаем на кнопку delete и он должен упасть обратно в 0 секцию
+    }
 }
 
 extension DataProviderTests {

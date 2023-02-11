@@ -8,6 +8,7 @@
 import Foundation
 
 class TaskManager {
+    
     var taskCount: Int {
         return tasks.count
     }
@@ -31,6 +32,11 @@ class TaskManager {
     func checkTask(at index: Int) {     //  Отметка о выполнении задачи
         let task = tasks.remove(at: index)     //  метод .remove возвращает элемент, _ - чтобы не ругался
         doneTasks.append(task)
+    }
+    
+    func uncheckTask(at index: Int) {     //  Отметка о выполнении задачи
+        let task = doneTasks.remove(at: index)     //  метод .remove возвращает элемент, _ - чтобы не ругался
+        tasks.append(task)
     }
     
     func doneTask(at index: Int) -> Task {
