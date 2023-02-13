@@ -22,7 +22,6 @@ class TaskCell: UITableViewCell {
     }
         
     func configure(withTask task: Task, done: Bool = false) {
-        
         if done {
             let attributedString = NSAttributedString(
                 string: task.title,
