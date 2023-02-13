@@ -3,7 +3,7 @@ import Foundation
 struct Task {
     let title: String
     let description: String?
-    let date: Date?
+    let date: Date
     let location: Location?
     
     
