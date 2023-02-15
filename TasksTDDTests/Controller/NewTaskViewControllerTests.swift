@@ -58,7 +58,7 @@ final class NewTaskViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.cancelButton.isDescendant(of: sut.view))
     }
     
-    func testNewTask_hasSaveGeocoder_convertCoordinatesFromAddress() {
+    func testNewTask_hasSaveMockGeocoder_convertCoordinatesFromAddress() {
         let df = DateFormatter()
         df.dateFormat = "dd.MM.yy"
         let date = df.date(from: "13.02.2023")
@@ -75,19 +75,42 @@ final class NewTaskViewControllerTests: XCTestCase {
         
         sut.save()
         
-        let coordinate = CLLocationCoordinate2D(latitude: 59.9366713, longitude: 30.3150267)
+        let coordinate = CLLocationCoordinate2D(latitude: 59.0000000, longitude: 30.0000000)
         let location = Location(name: "task_location", coordinate: coordinate)
         let generatedTask = Task(title: "task_one", date: date, description: "task_description", location: location)
         
         placemark = MockCLPlacemark()
         mockGeocoder.completionHandler?([placemark], nil)
+        
         let task = sut.taskManager.task(at: 0)
         
         XCTAssertEqual(task, generatedTask)
     }
     
+    func testNewTask_geocoderFetches_CorrectCoordinates() {
+        let geocoderAnswer = expectation(description: "Geocoder answer")
+        let addressString = "Санкт-Петербург"
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(addressString) { (placemarks, error) in
+            let placemark = placemarks?.first
+            let location = placemark?.location
+            
+            guard
+                let latitude = location?.coordinate.latitude,
+                let longitude = location?.coordinate.longitude else {
+                    XCTFail()
+                    return
+                }
+            XCTAssertEqual(latitude, 59.9366713)    //  Текущие координаты при вкл интернете
+            XCTAssertEqual(longitude, 30.3150267)
+            geocoderAnswer.fulfill()
+        }
+        waitForExpectations(timeout: 5, handler: nil)       //  Асинхронный запрос геокодера обязывает подождать опр время
+    }
+    
     func testSaveButton_hasSaveMethod() {
         let saveButton = sut.saveButton
+        
         guard let actions = saveButton?.actions(forTarget: sut, forControlEvent: .touchUpInside) else {
             XCTFail()
             return
@@ -110,8 +133,8 @@ extension NewTaskViewControllerTests {
     }
     
     class MockCLPlacemark: CLPlacemark {
-        let mockCoordinate = CLLocationCoordinate2D(latitude: 59.9366713, longitude: 30.3150267)
-
+        let mockCoordinate = CLLocationCoordinate2D(latitude: 59.0000000, longitude: 30.0000000)
+        
         init() {
             let mkPlacemark = MKPlacemark(coordinate: mockCoordinate) as CLPlacemark
             super.init(placemark: mkPlacemark)
