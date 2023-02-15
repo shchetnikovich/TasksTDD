@@ -2,8 +2,8 @@ import Foundation
 
 struct Task {
     let title: String
-    let description: String?
     let date: Date
+    let description: String?
     let location: Location?
     
     
@@ -13,8 +13,8 @@ struct Task {
          location: Location? = nil
     ) {
         self.title = title
-        self.description = description
         self.date = date ?? Date()
+        self.description = description
         self.location = location
     }
 }
